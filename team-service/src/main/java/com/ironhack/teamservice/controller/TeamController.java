@@ -61,7 +61,7 @@ public class TeamController {
 
     /**
      * Creates a new Team.
-     * @param lead Receives the Lead Object by Body.
+     * @param team Receives the Lead Object by Body.
      * @return Returns the new Lead.
      */
     @PostMapping("/lead")
@@ -75,14 +75,14 @@ public class TeamController {
     /**
      * Updates a Lead.
      * @param id Receives the Id of the Lead to update by Param.
-     * @param lead Receives a Lead Object with the information to update by Body.
+     * @param team Receives a Lead Object with the information to update by Body.
      * @throws DataNotFoundException a Exception
      */
-    @PutMapping("/lead/{id}")
+    @PutMapping("/team/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateLead(@PathVariable Integer id, @RequestBody Lead lead) throws DataNotFoundException {
+    public void updateLead(@PathVariable Integer id, @RequestBody Team lead) throws DataNotFoundException {
         try {
-            teamService.updateLead(id, lead);
+            teamService.updateTeam(id, team);
         } catch (Exception e) {
             throw new DataNotFoundException(e.getMessage());
         }
@@ -95,12 +95,12 @@ public class TeamController {
      * @param id Receives the Id of the Lead to delete by Param.
      * @throws DataNotFoundException a Exception
      */
-    @DeleteMapping("/lead/{id}")
+    @DeleteMapping("/team/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLeadById(@PathVariable Integer id) throws DataNotFoundException {
         try {
-            Lead targetLead = leadService.findById(id);
-            leadService.deleteLeadById(targetLead.getId());
+            Team targetLead = teamService.findById(id);
+            teamService.deleteLeadById(targetLead.getId());
         } catch (Exception e) {
             throw new DataNotFoundException(e.getMessage());
         }
