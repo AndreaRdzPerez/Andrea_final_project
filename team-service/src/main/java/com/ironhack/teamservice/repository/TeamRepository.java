@@ -13,7 +13,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
     // READ
 
     /**
-     * This method finds all teams from leadRepository.
+     * This method finds all teams from teamRepository.
      *
      * @return A Team's list (List)
      */

@@ -1,4 +1,4 @@
-package com.ironhack.teamservice.model;
+package com.ironhack.matchservice.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -9,11 +9,10 @@ import javax.persistence.GenerationType;
 
 @Data
 @Entity
-public class
-Team {
+public class MatchResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private int captainId;
+    private Team won;
+    private Team lost;
 }
