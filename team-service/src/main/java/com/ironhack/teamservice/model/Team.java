@@ -14,5 +14,5 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private Member captain;
+    private int captainId;
 }
