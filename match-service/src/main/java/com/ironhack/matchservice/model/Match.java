@@ -13,10 +13,10 @@ public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String court;
+    private String fieldId;
     private String refereeId;
-    private Team teamA;
-    private Team teamB;
+    private Team teamAid;
+    private Team teamBid;
     private boolean finished;
     private int resultTeamA;
     private int resultTeamB;
