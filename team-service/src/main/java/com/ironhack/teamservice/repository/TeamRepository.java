@@ -13,14 +13,14 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
     // READ
 
     /**
-     * This method finds all leads from leadRepository.
+     * This method finds all teams from leadRepository.
      *
      * @return A Team's list (List)
      */
     public List<Team> findAll();
 
     /**
-     * This method finds leads whose id matches with param
+     * This method finds teams whose id matches with param
      *
      * @param id A integer value
      * @return A Optional Team whose lead's id matches with param.
@@ -28,7 +28,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
     public Optional<Team> findById(Integer id);
 
     /**
-     * This method gets leads whose informationContact's name attribute matches with name param.
+     * This method gets teams whose informationContact's name attribute matches with name param.
      *
      * @param name A String value
      * @return A lead's list (List)
