@@ -1,4 +1,4 @@
-package com.ironhack.fieldservice.model;
+package com.ironhack.edgeservice.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

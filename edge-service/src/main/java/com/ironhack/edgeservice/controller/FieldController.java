@@ -1,14 +1,20 @@
-package com.ironhack.fieldservice.controller;
+package com.ironhack.edgeservice.controller;
 
-import com.ironhack.fieldservice.exception.DataNotFoundException;
-import com.ironhack.fieldservice.model.Field;
-import com.ironhack.fieldservice.service.FieldService;
+import com.ironhack.edgeservice.exception.DataNotFoundException;
+import com.ironhack.edgeservice.model.Field;
+import com.ironhack.edgeservice.service.FieldService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
+@Api(tags = "Lead Controller")
 @RestController
 public class FieldController {
+
     @Autowired
     private FieldService fieldService;
 
