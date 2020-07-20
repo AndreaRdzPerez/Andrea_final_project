@@ -1,12 +1,11 @@
 package com.ironhack.fieldservice.controller;
 
+import com.ironhack.fieldservice.exception.DataNotFoundException;
 import com.ironhack.fieldservice.model.Field;
 import com.ironhack.fieldservice.service.FieldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class FieldController {
@@ -27,6 +26,5 @@ public class FieldController {
     public Field findById(@PathVariable Integer id) {
         return fieldService.findById(id);
     }
-
 
 }
