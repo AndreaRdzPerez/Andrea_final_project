@@ -3,8 +3,8 @@ package com.ironhack.edgeservice.model;
 import lombok.Data;
 
 @Data
-public class Team {
+public class MatchResult {
     private int id;
-    private String name;
-    private int captainId;
+    private Team won;
+    private Team lost;
 }

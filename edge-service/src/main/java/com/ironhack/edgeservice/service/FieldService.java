@@ -1,8 +1,9 @@
 package com.ironhack.edgeservice.service;
 
-import com.ironhack.fieldservice.exception.DataNotFoundException;
-import com.ironhack.fieldservice.model.Field;
-import com.ironhack.fieldservice.repository.FieldRepository;
+import com.ironhack.edgeservice.client.FieldClient;
+import com.ironhack.edgeservice.exception.DataNotFoundException;
+import com.ironhack.edgeservice.model.Field;
+import com.ironhack.edgeservice.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,11 @@ public class FieldService {
     /**
      * Attributes
      */
+
     @Autowired
-    private FieldRepository fieldRepository;
+    private JwtUtil jwtUtil;
+    @Autowired
+    private FieldClient fieldClient;
 
     /**
      * This method get a team whose id attribute matches id patam
@@ -22,7 +26,8 @@ public class FieldService {
      * @throws DataNotFoundException if there isn't any team whose id doesn't matches id param
      */
     public Field findById(Integer id) throws DataNotFoundException {
-        return fieldRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Team."));
+        String fieldToken = "Bearer " + jwtUtil.generateToken("field-service");
+        return fieldClient.findById(id);
     }
 
 }

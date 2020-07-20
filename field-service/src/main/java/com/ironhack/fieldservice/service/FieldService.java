@@ -22,7 +22,7 @@ public class FieldService {
      * @throws DataNotFoundException if there isn't any team whose id doesn't matches id param
      */
     public Field findById(Integer id) throws DataNotFoundException {
-        return fieldRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Team."));
+        return fieldRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Field."));
     }
 
 }
