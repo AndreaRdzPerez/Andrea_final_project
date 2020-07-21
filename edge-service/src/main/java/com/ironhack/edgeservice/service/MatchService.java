@@ -5,7 +5,6 @@ import com.ironhack.edgeservice.exception.DataNotFoundException;
 import com.ironhack.edgeservice.model.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ironhack.edgeservice.util.JwtUtil;
 
 import java.util.List;
 
@@ -16,8 +15,6 @@ public class MatchService {
      * Attributes
      */
     @Autowired
-    private JwtUtil jwtUtil;
-    @Autowired
     private MatchClient matchClient;
 
     // READ
@@ -27,7 +24,7 @@ public class MatchService {
      * @return a match's list
      */
     public List<Match> findAll() {
-        String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
+        //String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
         return matchClient.findAll();
     }
 
@@ -38,7 +35,7 @@ public class MatchService {
      * @throws DataNotFoundException if there isn't any match whose id doesn't matches id param
      */
     public Match findById(Integer id) throws DataNotFoundException {
-        String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
+        //String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
         return matchClient.findById(id);
     }
 
@@ -49,7 +46,6 @@ public class MatchService {
      * @return The match which was added in matchRepository's list
      */
     public Match createMatch(Match match) {
-        String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
         return matchClient.createMatch(match);
     }
 
@@ -61,7 +57,6 @@ public class MatchService {
      * @throws DataNotFoundException if there isn't a match whose id attribute doesn't match with id param
      */
     public void updateMatch(Integer id, Match match) throws DataNotFoundException {
-        String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
         matchClient.updateMatch(id,match);
     }
 
@@ -72,7 +67,6 @@ public class MatchService {
      * @throws DataNotFoundException if there isn't a match whose id attribute doesn't match with id param
      */
     public void deleteMatchById(Integer id) throws DataNotFoundException {
-        String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
         matchClient.deleteMatchById(id);
     }
 }

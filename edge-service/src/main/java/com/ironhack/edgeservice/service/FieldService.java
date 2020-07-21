@@ -3,7 +3,6 @@ package com.ironhack.edgeservice.service;
 import com.ironhack.edgeservice.client.FieldClient;
 import com.ironhack.edgeservice.exception.DataNotFoundException;
 import com.ironhack.edgeservice.model.Field;
-import com.ironhack.edgeservice.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,6 @@ public class FieldService {
      */
 
     @Autowired
-    private JwtUtil jwtUtil;
-    @Autowired
     private FieldClient fieldClient;
 
     /**
@@ -26,7 +23,7 @@ public class FieldService {
      * @throws DataNotFoundException if there isn't any team whose id doesn't matches id param
      */
     public Field findById(Integer id) throws DataNotFoundException {
-        String fieldToken = "Bearer " + jwtUtil.generateToken("field-service");
+        //String fieldToken = "Bearer " + jwtUtil.generateToken("field-service");
         return fieldClient.findById(id);
     }
 

@@ -3,7 +3,6 @@ package com.ironhack.edgeservice.service;
 import com.ironhack.edgeservice.client.TeamClient;
 import com.ironhack.edgeservice.exception.DataNotFoundException;
 import com.ironhack.edgeservice.model.Team;
-import com.ironhack.edgeservice.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,6 @@ public class TeamService {
     /**
      * Attributes
      */
-    @Autowired
-    private JwtUtil jwtUtil;
     @Autowired
     private TeamClient teamClient;
 

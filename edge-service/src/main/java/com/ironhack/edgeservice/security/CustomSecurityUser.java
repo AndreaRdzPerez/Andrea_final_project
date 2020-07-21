@@ -10,27 +10,26 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CustomSecuredUser extends User implements UserDetails {
+public class CustomSecurityUser extends User implements UserDetails {
     private static final long serialVersionUID = -4381938875186527688L;
-    private Role role;
 
-    public CustomSecuredUser(User user) {
-        System.out.println(this + "Hello 1");
+    public CustomSecurityUser(User user) {
+        System.out.println(user);
         this.setRoles(user.getRoles());
         this.setId(user.getId());
         this.setPassword(user.getPassword());
         this.setUsername(user.getUsername());
-
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> authorities = new HashSet<>(); //Authority son los roles que tendrá nuestro user
-        Set<Role> roles = this.getRoles();//cada user tiene un set que roles es eso que estamos definindo
+        Collection<GrantedAuthority> authorities = new HashSet<>();
+        Set<Role> roles = this.getRoles();
         System.out.println(this);
-        for (Role role : roles) {
+        for( Role role : roles ) {
+
             System.out.println(role.getRole());
-            authorities.add(new SimpleGrantedAuthority(role.getRole()));
+            authorities.add( new SimpleGrantedAuthority(role.getRole()) );
         }
         return authorities;
     }
@@ -53,9 +52,5 @@ public class CustomSecuredUser extends User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public Role getRole() {
-        return role;
     }
 }

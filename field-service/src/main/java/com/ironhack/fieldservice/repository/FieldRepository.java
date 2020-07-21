@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface FieldRepository extends JpaRepository<Field, Integer> {
+public interface FieldRepository extends JpaRepository<Field, String> {
     /**
      * This method finds fields whose id matches with param
      *
