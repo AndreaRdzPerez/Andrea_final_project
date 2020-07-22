@@ -1,7 +1,7 @@
 package com.ironhack.fieldservice.service;
 
 import com.ironhack.fieldservice.exception.DataNotFoundException;
-import com.ironhack.fieldservice.model.Field;
+import com.ironhack.fieldservice.model.SportsField;
 import com.ironhack.fieldservice.repository.FieldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class FieldService {
      * @return  A team which was found
      * @throws DataNotFoundException if there isn't any team whose id doesn't matches id param
      */
-    public Field findById(Integer id) throws DataNotFoundException {
+    public SportsField findById(Integer id) throws DataNotFoundException {
         return fieldRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Field."));
     }
 

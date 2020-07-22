@@ -1,7 +1,7 @@
 package com.ironhack.fieldservice.controller;
 
 import com.ironhack.fieldservice.exception.DataNotFoundException;
-import com.ironhack.fieldservice.model.Field;
+import com.ironhack.fieldservice.model.SportsField;
 import com.ironhack.fieldservice.service.FieldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class FieldController {
      */
     @GetMapping("/field/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Field findById(@PathVariable Integer id) {
+    public SportsField findById(@PathVariable Integer id) {
         return fieldService.findById(id);
     }
 

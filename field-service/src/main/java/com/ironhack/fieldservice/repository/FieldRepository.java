@@ -1,18 +1,18 @@
 package com.ironhack.fieldservice.repository;
 
-import com.ironhack.fieldservice.model.Field;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.ironhack.fieldservice.model.SportsField;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface FieldRepository extends JpaRepository<Field, String> {
+public interface FieldRepository extends MongoRepository<SportsField, String> {
     /**
      * This method finds fields whose id matches with param
      *
      * @param id A integer value
      * @return A Optional Team whose lead's id matches with param.
      */
-    public Optional<Field> findById(Integer id);
+    public Optional<SportsField> findById(Integer id);
 }
