@@ -15,7 +15,6 @@ public class TeamController {
     private TeamService teamService;
 
     // READ
-
     /**
      * Find all the Teams.
      *

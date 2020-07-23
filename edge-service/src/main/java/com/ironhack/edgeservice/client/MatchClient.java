@@ -26,13 +26,13 @@ public interface MatchClient {
 
     @PostMapping("/match")
     @ResponseStatus(HttpStatus.CREATED)
-    public Match createTeam(@RequestBody Match match);
+    public Match createMatch(@RequestBody Match match);
 
     // UPDATE
 
     @PutMapping("/match/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateTeam(@PathVariable Integer id, @RequestBody Match match);
+    public void updateMatch(@PathVariable Integer id, @RequestBody Match match);
 
     // DELETE
 

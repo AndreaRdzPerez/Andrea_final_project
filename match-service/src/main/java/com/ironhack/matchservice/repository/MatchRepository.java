@@ -27,11 +27,4 @@ public interface MatchRepository extends JpaRepository<Match, Integer> {
      */
     public Optional<Match> findById(Integer id);
 
-    /**
-     * This method gets matches whose informationContact's name attribute matches with name param.
-     *
-     * @param name A String value
-     * @return A lead's list (List)
-     */
-    public List<Match> findByNameContaining(String name);
 }

@@ -1,13 +1,12 @@
 package com.ironhack.edgeservice.service;
 
+import com.ironhack.edgeservice.client.TeamClient;
 import com.ironhack.edgeservice.exception.DataNotFoundException;
 import com.ironhack.edgeservice.model.Team;
-import com.ironhack.edgeservice.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TeamService {
@@ -16,7 +15,7 @@ public class TeamService {
      * Attributes
      */
     @Autowired
-    private TeamRepository teamRepository;
+    private TeamClient teamClient;
 
     // READ
 
@@ -25,8 +24,7 @@ public class TeamService {
      * @return a team's list
      */
     public List<Team> findAll() {
-        List<Team> result = teamRepository.findAll();
-        return result;
+        return teamClient.findAll();
     }
 
     /**
@@ -36,7 +34,7 @@ public class TeamService {
      * @throws DataNotFoundException if there isn't any team whose id doesn't matches id param
      */
     public Team findById(Integer id) throws DataNotFoundException {
-        return teamRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Team."));
+        return teamClient.findById(id);
     }
 
 
@@ -47,11 +45,7 @@ public class TeamService {
      * @throws DataNotFoundException If teamRepository's list size is less than 1
      */
     public List<Team> findByNameContaining(String name) throws DataNotFoundException {
-        Optional<List<Team>> targetTeamList = Optional.ofNullable(teamRepository.findByNameContaining(name));
-        if(targetTeamList.get().size() < 1) {
-            throw new DataNotFoundException("Could not find that Team.");
-        }
-        return targetTeamList.get();
+        return teamClient.findByNameContaining(name);
     }
 
     // CREATE
@@ -61,7 +55,7 @@ public class TeamService {
      * @return The team which was added in teamRepository's list
      */
     public Team createTeam(Team team) {
-        return teamRepository.save(team);
+        return teamClient.createTeam(team);
     }
 
     // UPDATE
@@ -72,11 +66,7 @@ public class TeamService {
      * @throws DataNotFoundException if there isn't a team whose id attribute doesn't match with id param
      */
     public void updateTeam(Integer id, Team team) throws DataNotFoundException {
-        Team targetTeam = teamRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Team."));
-        targetTeam.setId(targetTeam.getId());
-        targetTeam.setName(team.getName());
-        targetTeam.setCaptainId(team.getCaptainId());
-        teamRepository.save(targetTeam);
+        teamClient.updateTeam(id,team);
     }
 
     // DELETE
@@ -86,8 +76,7 @@ public class TeamService {
      * @throws DataNotFoundException if there isn't a team whose id attribute doesn't match with id param
      */
     public void deleteTeamById(Integer id) throws DataNotFoundException {
-        Team targetTeam = teamRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that team."));
-        teamRepository.delete(targetTeam);
+        teamClient.deleteTeamById(id);
     }
 
 }

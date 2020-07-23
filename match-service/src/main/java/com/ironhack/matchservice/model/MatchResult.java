@@ -1,18 +1,21 @@
 package com.ironhack.matchservice.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
+/*
 @Data
 @Entity
 public class MatchResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @OneToOne
     private Team won;
+    @ManyToMany
     private Team lost;
+
 }
+
+ */

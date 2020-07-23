@@ -1,8 +1,8 @@
 package com.ironhack.edgeservice.service;
 
-import com.ironhack.matchservice.exception.DataNotFoundException;
-import com.ironhack.matchservice.model.Match;
-import com.ironhack.matchservice.repository.MatchRepository;
+import com.ironhack.edgeservice.client.MatchClient;
+import com.ironhack.edgeservice.exception.DataNotFoundException;
+import com.ironhack.edgeservice.model.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class MatchService {
      * Attributes
      */
     @Autowired
-    private MatchRepository matchRepository;
+    private MatchClient matchClient;
 
     // READ
 
@@ -24,18 +24,19 @@ public class MatchService {
      * @return a match's list
      */
     public List<Match> findAll() {
-        List<Match> result = matchRepository.findAll();
-        return result;
+        //String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
+        return matchClient.findAll();
     }
 
     /**
-     * This method get a match whose id attribute matches id patam
+     * This method get a match whose id attribute matches id param
      * @param id a integer value
      * @return  A match which was found
      * @throws DataNotFoundException if there isn't any match whose id doesn't matches id param
      */
     public Match findById(Integer id) throws DataNotFoundException {
-        return matchRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Match."));
+        //String leadToken = "Bearer " + jwtUtil.generateToken("match-service");
+        return matchClient.findById(id);
     }
 
     // CREATE
@@ -45,7 +46,7 @@ public class MatchService {
      * @return The match which was added in matchRepository's list
      */
     public Match createMatch(Match match) {
-        return matchRepository.save(match);
+        return matchClient.createMatch(match);
     }
 
     // UPDATE
@@ -56,16 +57,7 @@ public class MatchService {
      * @throws DataNotFoundException if there isn't a match whose id attribute doesn't match with id param
      */
     public void updateMatch(Integer id, Match match) throws DataNotFoundException {
-        Match targetMatch = matchRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that Match."));
-        targetMatch.setId(targetMatch.getId());
-        targetMatch.setFieldId(match.getFieldId());
-        targetMatch.setRefereeId(match.getRefereeId());
-        targetMatch.setTeamAid(match.getTeamAid());
-        targetMatch.setTeamBid(match.getTeamBid());
-        targetMatch.setFinished(match.isFinished());
-        targetMatch.setResultTeamA(match.getResultTeamA());
-        targetMatch.setResultTeamB(match.getResultTeamB());
-        matchRepository.save(targetMatch);
+        matchClient.updateMatch(id,match);
     }
 
     // DELETE
@@ -75,7 +67,6 @@ public class MatchService {
      * @throws DataNotFoundException if there isn't a match whose id attribute doesn't match with id param
      */
     public void deleteMatchById(Integer id) throws DataNotFoundException {
-        Match targetMatch = matchRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Could not find that match."));
-        matchRepository.delete(targetMatch);
+        matchClient.deleteMatchById(id);
     }
 }
