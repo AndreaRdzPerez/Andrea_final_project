@@ -9,6 +9,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { MatchesComponent } from './matches/matches.component';
 import { RefereesComponent } from './referees/referees.component';
 import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
