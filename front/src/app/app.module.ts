@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
+import { RegisterTeamComponent } from './register-team/register-team.component';
+import { AddMatchComponent } from './add-match/add-match.component';
+import { InsertResultsComponent } from './insert-results/insert-results.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
     TeamsComponent,
     MatchesComponent,
     RefereesComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterTeamComponent,
+    AddMatchComponent,
+    InsertResultsComponent
   ],
   imports: [
     BrowserModule,
