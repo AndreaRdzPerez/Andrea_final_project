@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     invalidLogin = false;
     error = '';
     loading = false;
-    returnUrl = '/leads';
+    returnUrl = '/matches';
     disabled = false;
   
     constructor(
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   
     ngOnInit() {
       if (this.authenticationService.userValue) {
-        this.router.navigate(['/leads']);
+        this.router.navigate(['/matches']);
       }
       // tslint:disable-next-line: member-ordering
       const signUpButton = document.getElementById('signUp');
