@@ -26,7 +26,7 @@ To apply the microservices architecture this project is divided into 6 services:
 - Team Service
 - Field Service
 
-![Services Diagram](/img/Rugby_Services_Diagram.png.png)
+![Services Diagram](/img/Rugby_Services_Diagram.png)
 
 
 ## <a name="tools"></a>Tools used
