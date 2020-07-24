@@ -1,0 +1,38 @@
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1 class="signin">Get started</h1>
+        <br />
+        <p class="message">
+          Use one of this credentials to start using our project.
+        </p>
+        <input type="text" value="Username: admin" disabled />
+        <input type="text" value="Password: admin" disabled />
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <img clas="logo-img" src="./assets/img/tmnt_logo.jpg" width="300" height="300" />    
+        <input class="login_input" type="text" name="username" formControlName="username" placeholder="Username"/> 
+     <input class="login_input" type="password" name="password" formControlName="password" placeholder="Password" />
+        <button [disabled]="disabled" type="submit" class="btn btn-success">
+          Login
+        </button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Start</h1>
+          <p>To start checking the Rugby Championship go ahead and Log In</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Rugbier!</h1>
+          <p>To see more details on how to get started click the button below</p>
+          <button class="ghost" id="signUp">More info</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

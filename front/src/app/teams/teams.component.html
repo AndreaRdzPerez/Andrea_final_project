@@ -1,0 +1,24 @@
+<app-layout>
+    <div class="content">
+      <div class="row">
+        <table class="table table-borderless table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">CaptainId</th>
+              <th scope="col">Number of Team Members</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of teams">
+              <th id="acId">{{ t.id }}</th>
+              <td>{{ t.name }}</td>
+              <td>{{ t.captainId }}</td>
+              <td>{{ t.teamMembersNum }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </app-layout>

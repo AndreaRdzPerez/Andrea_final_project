@@ -1,7 +1,7 @@
 package com.ironhack.matchservice.controller;
 
 import com.ironhack.matchservice.exception.DataNotFoundException;
-import com.ironhack.matchservice.model.Match;
+import com.ironhack.matchservice.model.SportsMatch;
 import com.ironhack.matchservice.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class MatchController {
      */
     @GetMapping("/matches")
     @ResponseStatus(HttpStatus.OK)
-    public List<Match> findAll() {
+    public List<SportsMatch> findAll() {
         return matchService.findAll();
     }
 
@@ -37,7 +37,7 @@ public class MatchController {
      */
     @GetMapping("/match/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Match findById(@PathVariable Integer id) throws DataNotFoundException {
+    public SportsMatch findById(@PathVariable Integer id) throws DataNotFoundException {
         return matchService.findById(id);
     }
 
@@ -51,7 +51,7 @@ public class MatchController {
      */
     @PostMapping("/match")
     @ResponseStatus(HttpStatus.CREATED)
-    public Match createMatch(@RequestBody Match match) {
+    public SportsMatch createMatch(@RequestBody SportsMatch match) {
         return matchService.createMatch(match);
     }
 
@@ -66,7 +66,7 @@ public class MatchController {
      */
     @PutMapping("/match/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateMatch(@PathVariable Integer id, @RequestBody Match match) {
+    public void updateMatch(@PathVariable Integer id, @RequestBody SportsMatch match) {
         matchService.updateMatch(id, match);
     }
 

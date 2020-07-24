@@ -1,0 +1,36 @@
+<app-layout>
+    <div class="content">
+      <div class="row">
+        <table class="table table-borderless table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Field Id</th>
+              <th scope="col">Referee Id</th>
+              <th scope="col">Team A</th>
+              <th scope="col">Team B</th>
+              <th scope="col">Finished</th>
+              <th scope="col">Result Team A</th>
+              <th scope="col">Result Team B</th>
+
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr *ngFor="let m of matches">
+              <th id="opId">{{ m.id }}</th>
+              <td>{{ m.id }}</td>
+              <td>{{ m.fieldId }}</td>
+              <td>{{ m.refereeId }}</td>
+              <td>{{ m.teamAid }}</td>
+              <td>{{ m.teamBid }}</td>
+              <td>{{ m.finished }}</td>
+              <td>{{ m.resultTeamA }}</td>
+              <td>{{ m.resultTeamB }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </app-layout>
+  
