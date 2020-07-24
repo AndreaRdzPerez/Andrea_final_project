@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TeamsComponent } from './teams/teams.component';
 import { MatchesComponent } from './matches/matches.component';
+import { LayoutComponent } from './layout/layout.component';
 import { RefereesComponent } from './referees/referees.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,6 +24,7 @@ import { BasicAuthInterceptor, ErrorInterceptor } from './_helpers';
     AppComponent,
     NavbarComponent,
     SidebarComponent,
+    LayoutComponent,
     TeamsComponent,
     MatchesComponent,
     RefereesComponent,

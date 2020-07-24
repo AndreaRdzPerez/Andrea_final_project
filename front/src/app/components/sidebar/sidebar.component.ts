@@ -10,45 +10,31 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
   {
-    path: '/create',
-    title: 'Add new',
+    path: '/createTeam',
+    title: 'Register Team',
     rtlTitle: 'لوحة القيادة',
     icon: 'icon-simple-add',
     class: '',
   },
   {
-    path: '/reports',
-    title: 'Reports',
+    path: '/teams',
+    title: 'Teams',
     rtlTitle: 'إخطارات',
     icon: 'icon-chart-bar-32',
     class: '',
   },
   {
-    path: '/leads',
-    title: 'Leads',
+    path: '/matches',
+    title: 'Matches',
     rtlTitle: 'الرموز',
     icon: 'icon-atom',
     class: '',
   },
   {
-    path: '/opportunities',
-    title: 'Opportunities',
+    path: '/referees',
+    title: 'Referees',
     rtlTitle: 'خرائط',
     icon: 'icon-spaceship',
-    class: '',
-  },
-  {
-    path: '/contacts',
-    title: 'Contacts',
-    rtlTitle: 'خرائط',
-    icon: 'icon-single-02',
-    class: '',
-  },
-  {
-    path: '/accounts',
-    title: 'Accounts',
-    rtlTitle: 'خرائط',
-    icon: 'icon-bank',
     class: '',
   },
 ];
