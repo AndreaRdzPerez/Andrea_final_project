@@ -72,7 +72,7 @@ export class RegisterTeamComponent implements OnInit {
         teamMembersNum: this.f.email.value,
     };
     this.http
-      .post<Team>(`${environment.apiUrl}/lead`, newTeam, this.httpOptions)
+      .post<Team>(`${environment.apiURL}/lead`, newTeam, this.httpOptions)
       .subscribe(
         (data) => {
           this.toastr.success(
