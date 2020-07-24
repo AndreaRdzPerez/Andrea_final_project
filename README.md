@@ -28,11 +28,6 @@ To apply the microservices architecture this project is divided into 6 services:
 
 ![Services Diagram](/img/Rugby_Services_Diagram.png.png)
 
-<p align="center">
-<img src="https://i.ibb.co/Btnmxn8/Untitled-Diagram-2.png" alt="Microservices-Diagram" border="0"></a>
-</p>
-
-
 
 ## <a name="tools"></a>Tools used
 - IntelliJ
@@ -76,7 +71,7 @@ To apply the microservices architecture this project is divided into 6 services:
 user: admin
 password: admin
 
-user: salesrep
+user: TeamUser
 password: admin
 
 ````
