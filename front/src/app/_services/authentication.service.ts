@@ -25,7 +25,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     return this.http
-      .post<any>(`${environment.apiUrl}/login`, null, {
+      .post<any>(`${environment.apiURL}/login`, null, {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Authorization: `Basic ` + btoa(`${username}:${password}`),
